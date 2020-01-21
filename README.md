@@ -16,7 +16,7 @@ Requirements:
 ## Install
 
 ### Install Catkin from source (the version on pip doesn't work)
-- Go to instructions at [https://catkin-tools.readthedocs.io/en/latest/installing.html#installing-from-source]
+- Follow the instructions at [here](https://catkin-tools.readthedocs.io/en/latest/installing.html#installing-from-source)
 
 ### Setup Duckietown environment in gazebo
 - Clone this repo & go to the directory
