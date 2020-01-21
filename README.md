@@ -20,7 +20,7 @@ Requirements:
 
 ### Setup Duckietown environment in gazebo
 - Clone this repo & go to the directory
-- `source /opt/ros/kinetic/setup.bash`
+- `source /opt/ros/melodic/setup.bash`
 - `catkin build`
 - `source devel/setup.bash` or `source devel/setup.zsh`
 - `cd src/duckietown_gazebo`
@@ -39,6 +39,8 @@ angular:
   x: 0.0
   y: 0.0
   z: 0.1"``` or ```./run_cmd```
+
+**Note:** When loading some tracks, there might be an error message `[Err] [InsertModelWidget.cc:405] Missing model.config for model "/home/iceman126/duckietown-gazebo/src/duckietown_gazebo/models/rubber_duck"`. We are not sure this is would be a problem, since there's another model called `gazebo_duck` in the directory and the duckietown environment looks fine.
 
 **TODO: complete the list of depencencies to install.**
 
