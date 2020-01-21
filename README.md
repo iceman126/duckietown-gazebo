@@ -5,11 +5,40 @@ With this folder, you can run duckietown environment and control robot with gaze
 ## Install Depencencies
 
 Requirements:
-- Python 2
-- ROS Kinetic
-- Gazebo 7 (*not Gazebo 8!*)
+- Python 3
+- ROS Melodic
+- Gazebo 9
+- Catkin_tools
+- Catkin_pkg
 
-**NOTE:  To build successfully, maybe you need to install a lot ros packages. Based on the error message, use ```sudo apt-get install ros-kinetic-packagename```.**
+**NOTE:  To build successfully, maybe you need to install a lot ros packages. Based on the error message, use ```sudo apt-get install ros-melodic-packagename```.**
+
+## Install
+
+### Install Catkin from source (the version on pip doesn't work)
+- Go to instructions at [https://catkin-tools.readthedocs.io/en/latest/installing.html#installing-from-source]
+
+### Setup Duckietown environment in gazebo
+- Clone this repo & go to the directory
+- `source /opt/ros/kinetic/setup.bash`
+- `catkin build`
+- `source devel/setup.bash` or `source devel/setup.zsh`
+- `cd src/duckietown_gazebo`
+- `source env_gazebo.sh`
+- `cd ..`
+- `./run_gazebo.sh`
+- You should be able to see a Duckiebot in Duckietown in gazebo.
+
+In gazebo, shortcut "Ctrl+T" can call out "Gazebo: Topic Selector" window. Then click topic ```/gazebo/default/mybot/chassis/camera1/image```under ```gazebo.msgs.ImageStamped```, a camera window of dockiebot will show up.
+
+You can also control robot through publish messege to topic with command ```rostopic pub /cmd_vel geometry_msgs/Twist "linear:
+  x: 0.2
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 0.1"``` or ```./run_cmd```
 
 **TODO: complete the list of depencencies to install.**
 
@@ -27,30 +56,8 @@ rospkg \
 pygazebo==3.0.0-2014.1
 ```
 
-## Build and run duckietown environment with a duckiebot
 
-```
-source /opt/ros/kinetic/setup.bash
-cd simulator
-catkin build
-source devel/setup.bash
-cd src/duckietown_gazebo
-source env_gazebo.sh
-cd ..
-./run_gazebo.sh
-```
-You will see a Duckiebot in Duckietown now.
 
-In gazebo, shortcut "Ctrl+T" can call out "Gazebo: Topic Selector" window. Then click topic ```/gazebo/default/mybot/chassis/camera1/image```under ```gazebo.msgs.ImageStamped```, a camera window of dockiebot will show up.
-
-You can also control robot through publish messege to topic with command ```rostopic pub /cmd_vel geometry_msgs/Twist "linear:
-  x: 0.2
-  y: 0.0
-  z: 0.0
-angular:
-  x: 0.0
-  y: 0.0
-  z: 0.1"``` or ```./run_cmd```
 
 
 
